@@ -1,5 +1,4 @@
-# N = int(input("Nhập N: "))
-N = 30
+N = int(input("Nhập N: "))
 
 # Tìm tất cả các số nguyên tố trong khoảng từ 1 đến N
 def find_primes(N):
@@ -37,4 +36,3 @@ def sum_perfect_numbers(N):
 
 result, perfect_numbers = sum_perfect_numbers(N)
 print(f"Tổng các số hoàn hảo nhỏ hơn {N}: {result} ({', '.join(map(str, perfect_numbers))})")
-print("-" * 60)

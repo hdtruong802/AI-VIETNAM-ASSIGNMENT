@@ -35,13 +35,3 @@ for idx, (task, priority, status) in enumerate(st.session_state.tasks, start=1):
 if st.button("Xóa danh sách"):
     st.session_state.tasks = []
     st.rerun()
-
-# col1, col2, _ = st.columns([1, 1, 3])
-# with col1:
-#     if st.button("Xóa danh sách"):
-#         st.session_state.tasks = []
-#         st.rerun()
-# with col2:
-#     if st.button("Xóa công việc"):
-#         st.session_state.tasks.remove((task, priority, status))
-#         st.rerun()

@@ -24,14 +24,24 @@ if st.button("Thêm công việc"):
 st.header("Danh sách công việc:")
 
 for idx, (task, priority, status) in enumerate(st.session_state.tasks, start=1):
-    st.write(f"{idx}. {task} - Ưu tiên: {priority} - Trạng thái: {status}")
+    col1, col2 = st.columns(2)
+    with col1:
+        st.write(f"{idx}. {task} - Ưu tiên: {priority} - Trạng thái: {status}")
+    with col2:
+        if st.button("❌", key = f"del_{idx}"):
+            del st.session_state.tasks[idx-1]
+            st.rerun()
 
-col1, col2, _ = st.columns([1, 1, 3])
-with col1:
-    if st.button("Xóa danh sách"):
-        st.session_state.tasks = []
-        st.rerun()
-with col2:
-    if st.button("Xóa công việc"):
-        st.session_state.tasks.remove((task, priority, status))
-        st.rerun()
+if st.button("Xóa danh sách"):
+    st.session_state.tasks = []
+    st.rerun()
+
+# col1, col2, _ = st.columns([1, 1, 3])
+# with col1:
+#     if st.button("Xóa danh sách"):
+#         st.session_state.tasks = []
+#         st.rerun()
+# with col2:
+#     if st.button("Xóa công việc"):
+#         st.session_state.tasks.remove((task, priority, status))
+#         st.rerun()
